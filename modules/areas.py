@@ -1,3 +1,4 @@
+rutas= []
 def crear_area(nombre_area, capacidad=33):
     pass
 
