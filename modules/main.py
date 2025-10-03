@@ -2,6 +2,7 @@ import modules.masseg as m
 import modules.camperss as c
 import modules.trainers as t
 import modules.rutas as r
+import modules.areas as a
 
 while True:
     
@@ -47,7 +48,7 @@ while True:
             case 4:
                 r.crear_ruta()
             case 5:
-                pass
+                a.crear_area()
             case 6:
                 pass
             case 7:

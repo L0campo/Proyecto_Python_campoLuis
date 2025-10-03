@@ -1,3 +1,5 @@
+import rutas as r
+
 trainers=[]
 def registrar_trainer():
         programacion=["Java", "JavaScript", "C#"]
@@ -29,7 +31,7 @@ def registrar_trainer():
             "datos": { 
             "nombre": trainer1,
             "apellidos" : apellidos,
-            "idioma que domina": idioma,
+            "idioma": idioma,
             "ruta":[]
         
         } }
@@ -55,3 +57,29 @@ def asignar_ruta_trainer():
 
     trainer_encontrado= None
     ruta_encotrada= None
+    for ruta in r.rutas: 
+        if ruta["ID"]==  ID_ruta:
+            ruta_encotrada= ruta
+            break
+            
+    if not ruta_encotrada:
+        print("error, ID inexistente") 
+        return  
+
+    for trainer in trainers:
+        if trainer["ID"]==  ID_trainer:
+            trainer_encontrado=trainer
+            break
+            
+
+        else:
+            print("error, ID de ruta inexistente")
+                    
+    
+    trainer_encontrado["datos"]["ruta"].append(ruta_encotrada)
+            
+
+            
+
+
+    
