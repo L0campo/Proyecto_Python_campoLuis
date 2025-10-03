@@ -1,6 +1,7 @@
-import rutas as r
+import modules.rutes as r
 
 trainers=[]
+
 def registrar_trainer():
         programacion=["Java", "JavaScript", "C#"]
         print("------ Registro de Trainer ------")
