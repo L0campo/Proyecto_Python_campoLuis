@@ -1,4 +1,10 @@
-campers= []
+import utils.io_jon as u
+
+FILE = "data/campers.json"
+
+u.initialize_json(FILE, {"campers": []})
+data = u.read_json(FILE)
+campers = data.get("campers", [])
 
 
 def registrar_camper():
@@ -39,8 +45,9 @@ def registrar_camper():
 
     } }
     campers.append(camper)
+    u.rewrite_json(FILE, campers, path=["campers"])
+    print("✅ El camper fue registrado con éxito")
 
-    print ("el camper fue registrado con exito")
 
 
 
@@ -65,6 +72,8 @@ def listar_campers_por_estado():
 
 def actualizar_estado_camper():
     estados=["En proceso de ingreso","proceso de ingreso", "Inscrito", "Aprobado","Cursando"," Graduado", "Expulsado"," Retirado"]
+    data = u.read_json(FILE)                
+    campers = data.get("campers", [])       
     if campers:
         ID=input ("ingrese el ID del camper que desea modificar su estado: ")
         print(estados)
@@ -74,8 +83,10 @@ def actualizar_estado_camper():
                 new_estado=input("ingrese el nuevo estado").lower()
 
                 if new_estado in estados:
-                    camper["datos"]["estado"]= new_estado
-                
+                    camper["datos"]["estado"] = new_estado
+                    u.write_json(FILE, {"campers": campers})   
+                    print("✅ Estado actualizado con éxito")
+                    
                 else:
                     print("estado no valido") 
             else:
@@ -102,6 +113,8 @@ Estado: {camper["datos"]["estado"]}""")
 
 def actualizar_riesgo_camper():
     estados=["bajo","medio","alto"]
+    data = u.read_json(FILE)
+    campers = data.get("campers", [])
     if campers:
         ID=input ("ingrese el ID del camper que desea modificar su nivel de riesgo: ")
         
@@ -116,6 +129,7 @@ def actualizar_riesgo_camper():
 
                 if new_riesgo in estados:
                     camper["datos"]["riesgo"]= new_riesgo
+                    u.write_json(FILE, {"campers": campers}) 
                 
                 else:
                     print("estado no valido") 

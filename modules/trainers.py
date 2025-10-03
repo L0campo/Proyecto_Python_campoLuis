@@ -45,7 +45,7 @@ def listar_trainers():
         for trainer in trainers:
             print(f"""
 ID: {trainer["ID"]}\n
-Nombre: {trainer["datos"]["nombre"]} {trainer["datos"]["apellidos"]}\n
+Nombre: {trainer["datos"]["nombre"]} apellido: {trainer["datos"]["apellidos"]}\n
 Idioma que domina: {trainer["datos"]["idioma"] }\n Ruta asignada: {trainer["datos"]["ruta"]}
 """)
             

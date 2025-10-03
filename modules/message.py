@@ -39,3 +39,22 @@ def menu_admit():
         return opcion
 
 
+def menu_regisCamper():
+       print("--- Registro de camper ---")
+       print("1. Registrar camper")
+       print("2. lista de camper por estado")
+       print("3. actulizar estado de camper")
+       print("4. lista de estado por riesgo")
+       print("5. actualizar riesgo del camper")
+       print("0.salir")
+       opcion = int(input("👉 Seleccione una opción: "))
+       return opcion
+
+def menu_registrainer():
+       print("--- Registro de trainer ---")
+       print("1.Registrar trainer")
+       print("2.lista de trainer")
+       print("3.asignar ruta a trainer")
+       print("0.salir")
+       opcion = int(input("👉 Seleccione una opción: "))
+       return opcion

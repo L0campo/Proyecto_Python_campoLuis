@@ -1,6 +1,11 @@
 import modules.campers as c
 
 
+
+
+
+
+
 rutas=[]
 
 def crear_ruta():
@@ -38,8 +43,8 @@ def crear_ruta():
         "data":{        
         "modulos" :modulos,
         "capacidad": 33,
-        "campers": [],
-        "trainers" : []
+        "area": []
+        
     }  }
     rutas.append(ruta)
 
@@ -94,4 +99,17 @@ def asignar_camper_a_ruta():
     else:
         print("capacidad maxima alcanzada")
             
-    
+def asignar_area_ruta():
+        salon= input ("ingrese el salon selecionado: ")
+        hora= input("ingrese la hora inicio: ")
+        hora1= input("ingrese la hora fin")
+
+        area={
+            "salon": salon,
+            "detalles":{
+                "hora":hora,
+                "horaf":hora1,               
+                
+            }
+        }
+        ruta [da]

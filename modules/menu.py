@@ -2,7 +2,7 @@ import modules.message as m
 import modules.campers as c
 import modules.trainers as t
 import modules.rutes as r
-import modules.areas as a
+
 
 def menu():
     while True:
@@ -39,16 +39,44 @@ def menu():
                 case 0:
                     pass
                 case 1:
-                    c.registrar_camper()
+                    opcionr=m.menu_regisCamper()
+                    if opcionr== 1:
+                        c.registrar_camper()
+                    elif opcionr==2:
+                        c.listar_campers_por_estado()
+                    elif opcionr==3:
+                        c.actualizar_estado_camper()
+                    elif opcionr==4:
+                        c.listar_campers_en_riesgo()
+                    elif opcionr==5:
+                        c.actualizar_riesgo_camper()
+                    elif opcionr==0:
+                        pass
+                    else:
+                        print("opcion invalida")
+
                     
                 case 2:
-                    t.registrar_trainer()
+                    opcionr=m.menu_registrainer()
+                    if opcionr== 1:
+                        t.registrar_trainer()
+                    elif opcionr==2:
+                        t.listar_trainers()
+                    elif opcionr==3:
+                        t.asignar_ruta_trainer()
+                   
+                    elif opcionr==0:
+                        pass
+                    else:
+                        print("opcion invalida")
+
+                    
                 case 3:
                     pass
                 case 4:
                     r.crear_ruta()
                 case 5:
-                    a.crear_area()
+                    pass
                 case 6:
                     pass
                 case 7:
