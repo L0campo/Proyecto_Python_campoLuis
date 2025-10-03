@@ -4,7 +4,7 @@ def logi ():
     print("2.trainer")
     print("3.cordinacion")
     print("0.salir")
-    opcion=int(input("ingrese una opcion correspondiente del 0-3"))
+    opcion=int(input("ingrese una opcion correspondiente del 0-3: "))
     return opcion
 
 def menu_trainer ():

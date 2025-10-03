@@ -1,6 +1,19 @@
 
-def crear_area(nombre_area, capacidad=33):
-    pass
+def crear_area():
+    
+    salon= input ("ingrese el salon selecionado: ")
+    hora= input("ingrese la hora designada")
+
+    area={
+        "salon": salon,
+        "detalles":{
+            "horas":hora,
+            "capacidad": 33
+            
+        }
+    }
+
+
 
         
 

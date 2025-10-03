@@ -2,6 +2,7 @@ import camperss as c
 
 
 rutas=[]
+
 def crear_ruta():
     programacion=["Java", "JavaScript", "C#"]
     base_de_datos=["Mysql", "MongoDb" , "Postgresql"]
@@ -34,11 +35,12 @@ def crear_ruta():
 
     ruta = {
         "ID": ID_ruta,
+        "data":{        
         "modulos" :modulos,
         "capacidad": 33,
-        "camper": [],
+        "campers": [],
         "trainers" : []
-    }
+    }  }
     rutas.append(ruta)
 
 
@@ -48,7 +50,7 @@ def listar_rutas():
         ID=input ("ingrese el ID de la ruta: ")
         for ruta in rutas:
             if ruta["ID"]== ID :
-                print(f"""ID:{ruta["ID"]}\nmodulos:{ruta["modulos"]}""")
+                print(f"""ID:{ruta["ID"]}\nmodulos:{ruta["data"]["modulos"]}""")
                 print("-"*60)
     else :
         print("no hay rutas registrados")            
@@ -81,9 +83,15 @@ def asignar_camper_a_ruta():
         else:
             print("error, ID de ruta inexistente")
                     
-    if len(ruta_encotrada) < ruta_encotrada["capacidad"]:
-            ruta_encotrada ["camper"].append(camper_encontrado)
+    if len(ruta_encotrada["data"]["campers"]) < ruta_encotrada["data"]["capacidad"]:
+            ruta_encotrada["data"]["campers"].append(camper_encontrado)
+            
+
+            
+
+
             print("camper asignado con exito")
     else:
-            print("capacidad maxima alcanzada")
+        print("capacidad maxima alcanzada")
             
+    

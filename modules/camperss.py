@@ -16,19 +16,16 @@ def registrar_camper():
     acudiente = input("ingrese el nombre del acudiente del camper: ")
     telefono = input("ingrese el telefono del camper: ")
     figtelefono= input("ingrese el telefono fijo del camper: ")
-    estado = input("ingrese el estado del camper (proceso o Inscrito): ").lower()
+    estado = ("proceso ")
 
-    if estado == "proceso":
-        estado = "en proceso"
+    
 
-
-    else:
-        print("ingrese un estado valido")
     
     riesgo = "bajo"
 
     camper ={
         "ID": ID,
+        "datos": {
         "nombre": camper1,
         "apellidos" : apellidos,
         "direcion": direcion,
@@ -40,7 +37,7 @@ def registrar_camper():
         "estado": estado,
         "riesgo":  riesgo
 
-    }
+    } }
     campers.append(camper)
 
     print ("el camper fue registrado con exito")
@@ -53,7 +50,7 @@ def listar_campers_por_estado():
     if campers:
         estado=input ("ingrese el estado de buqueda: ")
         for camper in campers:
-            if camper["estado"]== estado :
+            if camper["datos"]["estado"]== estado :
                 print(f"""ID:{camper["ID"]}\nnombre:{camper["nombre"]} {camper["apellidos"]}\nEstado: {camper["estado"]}""")
                 print("-"*60)
             else:
@@ -77,7 +74,7 @@ def actualizar_estado_camper():
                 new_estado=input("ingrese el nuevo estado").lower()
 
                 if new_estado in estados:
-                    camper["estado"]= new_estado
+                    camper["datos"]["estado"]= new_estado
                 
                 else:
                     print("estado no valido") 
@@ -94,8 +91,11 @@ def listar_campers_en_riesgo():
     if campers:
         riesgo=input ("ingrese el estado de buqueda: ")
         for camper in campers:
-            if camper["riesgo"]== riesgo :
-                print(f"""ID:{camper["ID"]}\nnombre:{camper["nombre"]} {camper["apellidos"]}\nriesgo: {camper["riesgo"]}""")
+            if camper["datos"]["riesgo"]== riesgo :
+                print(f"""ID: {camper["ID"]}\n
+Nombre: {camper["datos"]["nombre"]}\n {camper["datos"]["apellidos"]}\n
+Estado: {camper["datos"]["estado"]}""")
+
                 print("-"*60)
     else :
         print("no hay campers registrados")            
@@ -115,7 +115,7 @@ def actualizar_riesgo_camper():
                 new_riesgo=input("ingrese el nuevo nivel de riesgo").lower()
 
                 if new_riesgo in estados:
-                    camper["riesgo"]= new_riesgo
+                    camper["datos"]["riesgo"]= new_riesgo
                 
                 else:
                     print("estado no valido") 

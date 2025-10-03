@@ -26,20 +26,32 @@ def registrar_trainer():
 
         trainer ={
             "ID": ID,
+            "datos": { 
             "nombre": trainer1,
             "apellidos" : apellidos,
             "idioma que domina": idioma,
+            "ruta":[]
         
-        }
+        } }
         trainers.append(trainer)
 
         print ("el trainer fue registrado con exito")
 
 def listar_trainers():
     if trainers:
-        for trainser in trainers:
-            print(f"""ID:{trainser["ID"]}\nnombre:{trainser["nombre"]} {trainser["apellidos"]}\nidioma que domina: {trainser["idioma que domina"]}""")
+        for trainer in trainers:
+            print(f"""
+ID: {trainer["ID"]}\n
+Nombre: {trainer["datos"]["nombre"]} {trainer["datos"]["apellidos"]}\n
+Idioma que domina: {trainer["datos"]["idioma"] }\n Ruta asignada: {trainer["datos"]["ruta"]}
+""")
+            
             print("-"*60)
 
-def asignar_ruta_trainer(id_trainer, ruta):
-    pass
+def asignar_ruta_trainer():
+    
+    ID_trainer=input("ingrese el ID del trainer que deses asignarle una ruta: ")
+    ID_ruta= input("ingresar el ID de la ruta: ")
+
+    trainer_encontrado= None
+    ruta_encotrada= None
