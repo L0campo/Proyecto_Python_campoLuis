@@ -16,13 +16,11 @@ def registrar_camper():
     acudiente = input("ingrese el nombre del acudiente del camper: ")
     telefono = input("ingrese el telefono del camper: ")
     figtelefono= input("ingrese el telefono fijo del camper: ")
-    estado = input("ingrese el estado del camper (En proceso de ingreso o Inscrito): ").lower()
+    estado = input("ingrese el estado del camper (proceso o Inscrito): ").lower()
 
-    if estado == "en proceso de ingrso" and estado == "proceso de ingreso":
+    if estado == "proceso":
         estado = "en proceso"
 
-    elif estado == "inscrito":
-        estado = "inscrito"
 
     else:
         print("ingrese un estado valido")
@@ -58,6 +56,8 @@ def listar_campers_por_estado():
             if camper["estado"]== estado :
                 print(f"""ID:{camper["ID"]}\nnombre:{camper["nombre"]} {camper["apellidos"]}\nEstado: {camper["estado"]}""")
                 print("-"*60)
+            else:
+                print("estado inexistente")
     else :
         print("no hay campers registrados")            
     
@@ -70,7 +70,7 @@ def actualizar_estado_camper():
     estados=["En proceso de ingreso","proceso de ingreso", "Inscrito", "Aprobado","Cursando"," Graduado", "Expulsado"," Retirado"]
     if campers:
         ID=input ("ingrese el ID del camper que desea modificar su estado: ")
-        
+        print(estados)
         for camper in campers:
             if camper["ID"]== ID :
 
