@@ -9,9 +9,6 @@ import modules.campers as c
 rutas=[]
 
 def crear_ruta():
-    programacion=["Java", "JavaScript", "C#"]
-    base_de_datos=["Mysql", "MongoDb" , "Postgresql"]
-    Backend=["NetCore", "Spring Boot", "NodeJS" , "Express"] 
     
     print("------ Registro de ruta ------")
 
@@ -20,15 +17,38 @@ def crear_ruta():
         if ruta["ID"]== ID_ruta:
             print("ID ya existente")
             return
-    
-    print("Java, JavaScript, C#")   
-    modulo_Programacion=input ("ingrese un idioma de los presentados: ")
-    
+    print("ingrese un idioma de programacion")
+    print("1.Java")
+    print("2.JavaScript")
+    print("3.C#")  
+    modulo_Programacion=input ("selecione una opcion: ")
+    if modulo_Programacion == "1":
+        modulo_Programacion="java"       
+    elif modulo_Programacion == "2":
+        modulo_Programacion = "javaScript"       
+    elif modulo_Programacion == "3":
+        modulo_Programacion = "c#"
+    else:
+        print("opcion invalida")
+        
+    print("="*30)
 
-    print("Mysql, MongoDb ,Postgresql")
+
+    print("ingrese dos bases de datos")
+    print("1.Mysql")
+    print("2.MongoDb")
+    print("3.postgresql")
     modulo_BasesDeDatos= input("ingrese una base de datos de laa presentadas: ") 
-    print("Mysql, MongoDb ,Postgresql")
     modulo_BasesDeDatos2= input("ingrese una base de datos de laa presentadas: ") 
+    if modulo_Programodulo_BasesDeDatosmacion == "1":
+        modulo_Programacion="java"       
+    elif modulo_Programacion == "2":
+        modulo_Programacion = "javaScript"       
+    elif modulo_Programacion == "3":
+        modulo_Programacion = "c#"
+    else:
+        print("opcion invalida")
+    
     
 
     print("NetCore, Spring Boot, NodeJS , Express")
@@ -43,8 +63,8 @@ def crear_ruta():
         "data":{        
         "modulos" :modulos,
         "capacidad": 33,
-        "area": []
-        
+        "area": [],
+        "campers": []
     }  }
     rutas.append(ruta)
 
@@ -85,8 +105,9 @@ def asignar_camper_a_ruta():
             break
             
 
-        else:
-            print("error, ID de ruta inexistente")
+    if not ruta_encotrada:
+        print("error, ID de ruta inexistente")
+        return
                     
     if len(ruta_encotrada["data"]["campers"]) < ruta_encotrada["data"]["capacidad"]:
             ruta_encotrada["data"]["campers"].append(camper_encontrado)
@@ -112,4 +133,4 @@ def asignar_area_ruta():
                 
             }
         }
-        ruta [da]
+        return area
