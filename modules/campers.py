@@ -22,7 +22,7 @@ def registrar_camper():
     acudiente = input("ingrese el nombre del acudiente del camper: ")
     telefono = input("ingrese el telefono del camper: ")
     figtelefono= input("ingrese el telefono fijo del camper: ")
-    estado = ("proceso ")
+    estado = ("proceso")
 
     
 
@@ -41,7 +41,17 @@ def registrar_camper():
             "fijo": figtelefono
         },
         "estado": estado,
-        "riesgo":  riesgo
+        "riesgo":  riesgo,
+        "notas" : {
+            "nota 0": None,
+            "modulo.1": None,
+            "modulo.2": None,
+            "modulo.3": None,
+            "modulo.4": None,
+            "modulo.5": None
+            
+            
+        }
 
     } }
     campers.append(camper)
@@ -58,7 +68,10 @@ def listar_campers_por_estado():
         estado=input ("ingrese el estado de buqueda: ")
         for camper in campers:
             if camper["datos"]["estado"]== estado :
-                print(f"""ID:{camper["ID"]}\nnombre:{camper["nombre"]} {camper["apellidos"]}\nEstado: {camper["estado"]}""")
+                print(f"""ID: {camper["ID"]}\n
+Nombre: {camper["datos"]["nombre"]}\n {camper["datos"]["apellidos"]}\n
+Estado: {camper["datos"]["estado"]}\n notas: {camper["datos"]["notas"]}""")
+
                 print("-"*60)
             else:
                 print("estado inexistente")
@@ -71,24 +84,57 @@ def listar_campers_por_estado():
     
 
 def actualizar_estado_camper():
-    estados=["En proceso de ingreso","proceso de ingreso", "Inscrito", "Aprobado","Cursando"," Graduado", "Expulsado"," Retirado"]
+    
     data = u.read_json(FILE)                
     campers = data.get("campers", [])       
     if campers:
         ID=input ("ingrese el ID del camper que desea modificar su estado: ")
-        print(estados)
+
         for camper in campers:
             if camper["ID"]== ID :
+                print("estados")
+                print("1.En proceso de ingreso") 
+                print("2.inscrito")           
+                print("3.aprobado")
+                print("4.cursando")
+                print("5.graduado")
+                print("6.expulsado")
+                print("7.retirado")
 
-                new_estado=input("ingrese el nuevo estado").lower()
+    
 
-                if new_estado in estados:
-                    camper["datos"]["estado"] = new_estado
-                    u.write_json(FILE, {"campers": campers})   
-                    print("✅ Estado actualizado con éxito")
+                new_estado=input("ingrese el nuevo estado")
+                if new_estado == "1":
+                    estado="proceso"
+
+                elif new_estado == "2":
+                    estado="inscrito"
                     
+                elif new_estado == "3":
+                    estado="aprobado"
+                    
+                elif new_estado == "4":
+                    estado="cursando"
+                    
+                elif new_estado == "5":
+                    estado="graduado"
+                    
+                elif new_estado == "6":
+                    estado="expulsado"
+                    
+                elif new_estado == "7":
+                    estado="retirado"
+
                 else:
-                    print("estado no valido") 
+                    print("opcion no valido")
+                
+
+                
+                camper["datos"]["estado"] = estado
+                u.write_json(FILE, {"campers": campers})   
+                print("✅ Estado actualizado con éxito")
+                    
+
             else:
                 print("no exixten camper con ese ID")   
 
@@ -100,19 +146,19 @@ def actualizar_estado_camper():
 def listar_campers_en_riesgo():
     
     if campers:
-        riesgo=input ("ingrese el estado de buqueda: ")
+        riesgo=input ("ingrese el riesgo de buqueda: ")
         for camper in campers:
             if camper["datos"]["riesgo"]== riesgo :
                 print(f"""ID: {camper["ID"]}\n
 Nombre: {camper["datos"]["nombre"]}\n {camper["datos"]["apellidos"]}\n
-Estado: {camper["datos"]["estado"]}""")
+riesgo: {camper["datos"]["riesgo"]}""")
 
                 print("-"*60)
     else :
         print("no hay campers registrados")            
 
 def actualizar_riesgo_camper():
-    estados=["bajo","medio","alto"]
+    
     data = u.read_json(FILE)
     campers = data.get("campers", [])
     if campers:
@@ -122,16 +168,98 @@ def actualizar_riesgo_camper():
             if camper["ID"]== ID :
                 
                 print("niveles de riesgo")
-                print("bajo")
-                print("medio")
-                print("alto")
-                new_riesgo=input("ingrese el nuevo nivel de riesgo").lower()
-
-                if new_riesgo in estados:
-                    camper["datos"]["riesgo"]= new_riesgo
-                    u.write_json(FILE, {"campers": campers}) 
-                
+                print("1.bajo")
+                print("2.medio")
+                print("3.alto")
+                opcion=input("seleccione una opcion: ")
+                if opcion == "1":
+                    new_riesgo="bajo"
+                elif opcion == "2":
+                    new_riesgo="medio"
+                elif opcion == "3":
+                    new_riesgo="alto"
                 else:
-                    print("estado no valido") 
+                    print("opcion no valida")
+
+
+                
+                camper["datos"]["riesgo"]= new_riesgo
+                u.write_json(FILE, {"campers": campers}) 
+                
+                
+            else:
+                print("no exixten camper con ese ID")   
+
+
+def actualizar_notas_camper():
+    
+    data = u.read_json(FILE)                
+    campers = data.get("campers", [])       
+    if campers:
+        ID=input ("ingrese el ID del camper que desea modificar su estado: ")
+
+        for camper in campers:
+            if camper["ID"]== ID :
+                print("que nota desea modificar?")
+                print("1.nota 0")
+                print("2.modulo.1")
+                print("3.modulo.2")
+                print("4.modulo.3")
+                print("5.modulo.4")
+                print("6.modulo.5")
+                opcion=input("seleccione una opcion: ")
+
+                if opcion == "1":
+                    nota= float(input("ingrese nota: "))
+                    camper["datos"]["notas"]["nota 0" ] = nota
+                    u.write_json(FILE, {"campers": campers})   
+                    print("✅ nota ingresada con éxito")
+                
+                elif opcion == "2":
+                    nota= float(input("ingrese nota: "))
+                    camper["datos"]["notas"]["modulo.1" ] = nota
+                    u.write_json(FILE, {"campers": campers})
+                    print("✅ nota ingresada con éxito")
+                
+                elif opcion == "3":
+                    nota= float(input("ingrese nota: "))
+                    camper["datos"]["notas"]["modulo.2" ] = nota
+                    u.write_json(FILE, {"campers": campers})
+                    print("✅ nota ingresada con éxito")
+                
+                elif opcion == "4":
+                    nota= float(input("ingrese nota: "))
+                    camper["datos"]["notas"]["modulo.3" ] = nota
+                    u.write_json(FILE, {"campers": campers})
+                    print("✅ nota ingresada con éxito")
+                
+                elif opcion == "5":
+                    nota= float(input("ingrese nota: "))
+                    camper["datos"]["notas"]["modulo.4" ] = nota
+                    u.write_json(FILE, {"campers": campers})
+                    print("✅ nota ingresada con éxito")
+
+                elif opcion == "6":
+                    nota= float(input("ingrese nota: "))
+                    camper["datos"]["notas"]["modulo.5" ] = nota
+                    camper["datos"]["notas"]["modulo.4" ] = nota
+                    u.write_json(FILE, {"campers": campers})
+                    print("✅ nota ingresada con éxito")
+                    
+                else:
+                    print("opcion no valida")
+
+                
+                    
+                    
+                
+
+                    
+
+
+
+
+                
+
             else:
                 print("no exixten camper con ese ID")   

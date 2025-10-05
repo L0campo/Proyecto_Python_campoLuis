@@ -51,7 +51,7 @@ def menu():
                     elif opcionr==5:
                         c.actualizar_riesgo_camper()
                     elif opcionr==0:
-                        pass
+                        m.menu_admit()
                     else:
                         print("opcion invalida")
 
@@ -64,9 +64,10 @@ def menu():
                         t.listar_trainers()
                     elif opcionr==3:
                         t.asignar_ruta_trainer()
-                   
+                    
                     elif opcionr==0:
-                        pass
+                        m.menu_admit()
+                        
                     else:
                         print("opcion invalida")
 

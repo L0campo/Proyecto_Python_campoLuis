@@ -53,34 +53,37 @@ Idioma que domina: {trainer["datos"]["idioma"] }\n Ruta asignada: {trainer["dato
 
 def asignar_ruta_trainer():
     
-    ID_trainer=input("ingrese el ID del trainer que deses asignarle una ruta: ")
-    ID_ruta= input("ingresar el ID de la ruta: ")
+    if trainers:
+        ID_trainer=input("ingrese el ID del trainer que deses asignarle una ruta: ")
+        ID_ruta= input("ingresar el ID de la ruta: ")
 
-    trainer_encontrado= None
-    ruta_encotrada= None
-    for ruta in r.rutas: 
-        if ruta["ID"]==  ID_ruta:
-            ruta_encotrada= ruta
-            break
-            
-    if not ruta_encotrada:
-        print("error, ID inexistente") 
-        return  
+        trainer_encontrado= None
+        ruta_encotrada= None
+        for ruta in r.rutas: 
+            if ruta["ID"]==  ID_ruta:
+                ruta_encotrada= ruta
+                break
+                
+        if not ruta_encotrada:
+            print("error, ID inexistente") 
+            return  
 
-    for trainer in trainers:
-        if trainer["ID"]==  ID_trainer:
-            trainer_encontrado=trainer
-            break
-            
+        for trainer in trainers:
+            if trainer["ID"]==  ID_trainer:
+                trainer_encontrado=trainer
+                break
+                
 
-        else:
-            print("error, ID de ruta inexistente")
-                    
-    
-    trainer_encontrado["datos"]["ruta"].append(ruta_encotrada)
-            
+            else:
+                print("error, ID de ruta inexistente")
+                        
+        
+        trainer_encontrado["datos"]["ruta"].append(ruta_encotrada)
 
-            
+    else:
+        print("no hay trainers registrados")            
+
+                
 
 
     
