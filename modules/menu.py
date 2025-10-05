@@ -12,6 +12,7 @@ import modules.cositas as co
 def menu():
     while True:
         opcion=m.logi()
+
         u.clear_screen()
         try: 
 
@@ -25,20 +26,20 @@ def menu():
                         m.logi()
                         
                     case 1:
-                        co.listar_campers_mo_ru
+                        co.listar_campers_mo_ru()
                         u.pasuar()
                         u.clear_screen()
-                        m.menu_camper()
+                        opcion1=m.menu_camper()
                     case 2:
                         co.listar_campers_no()
                         u.pasuar()
                         u.clear_screen()
-                        m.menu_camper()
+                        opcion1=m.menu_camper()
                     case 3:
-                        co.listar_campers_mo_estado
+                        co.listar_campers_mo_estado()
                         u.pasuar()
                         u.clear_screen()
-                        m.menu_camper()
+                        opcion1=m.menu_camper()
                     case _:
                         print("opcion invalida")
 
@@ -54,14 +55,17 @@ def menu():
                         co.mostrar_camper()
                         u.pasuar()
                         u.clear_screen()
+                        opcion2=m.menu_trainer()
                     case 2:
                         c.actualizar_notas_camper()
                         u.pasuar()
                         u.clear_screen()
+                        opcion2=m.menu_trainer()
                     case 3:
                         c.calcular_promedio_notas()
                         u.pasuar()
                         u.clear_screen()
+                        opcion2=m.menu_trainer()
                     case _:
                         print("opcion invalida")
 
@@ -81,26 +85,31 @@ def menu():
                             c.registrar_camper()
                             u.pasuar()
                             u.clear_screen()
-                            m.menu_admit()
+                            opcionr=m.menu_regisCamper()
                         elif opcionr==2:
                             c.listar_campers_por_estado()
                             u.pasuar()
                             u.clear_screen()
+                            opcionr=m.menu_regisCamper()
                         elif opcionr==3:
                             c.actualizar_estado_camper()
                             u.pasuar()
                             u.clear_screen()
+                            opcionr=m.menu_regisCamper()
                         elif opcionr==4:
                             c.listar_campers_en_riesgo()
                             u.pasuar()
                             u.clear_screen()
+                            opcionr=m.menu_regisCamper()
                         elif opcionr==5:
                             c.actualizar_riesgo_camper()
                             u.pasuar()
                             u.clear_screen()
+                            opcionr=m.menu_regisCamper()
                         elif opcionr==0:
                             m.menu_admit()
                             u.clear_screen()
+                            opcion3=m.menu_admit()
                         else:
                             print("opcion invalida")
 
@@ -112,17 +121,20 @@ def menu():
                             t.registrar_trainer()
                             u.pasuar()
                             u.clear_screen()
+                            opcionr=m.menu_registrainer()
                         elif opcionr==2:
                             t.listar_trainers()
                             u.pasuar()
                             u.clear_screen()
+                            opcionr=m.menu_registrainer()
                         elif opcionr==3:
                             t.asignar_ruta_trainer()
                             u.pasuar()
                             u.clear_screen()
+                            opcionr=m.menu_registrainer()
                         
                         elif opcionr==0:
-                            m.menu_admit()
+                            opcion3=m.menu_admit()
                             u.clear_screen()
                             
                         else:
@@ -135,10 +147,12 @@ def menu():
                             r.crear_ruta()
                             u.pasuar()
                             u.clear_screen()
+                            opciont=m.menu_regisRuta()
                         elif opciont==2:
                             r.listar_rutas()
                             u.pasuar()
                             u.clear_screen()
+                            opciont=m.menu_regisRuta()
                         elif opciont==0:
                             m.menu_admit()
                             u.pasuar()
@@ -154,16 +168,19 @@ def menu():
                             mat.listar_matriculas()
                             u.pasuar()
                             u.clear_screen()
+                            opcion0=m.menu_matriculas()
                         elif opcion0==2:
                             mat.actualizar_matricula()
                             u.pasuar()
                             u.clear_screen()
+                            opcion0=m.menu_matriculas()
                         elif opcion0==3:
                             r.asignar_camper_a_ruta()
                             u.pasuar()
                             u.clear_screen()
+                            opcion0=m.menu_matriculas()
                         elif opcion0==0:
-                            m.menu_admit()
+                            opcion3=m.menu_admit()
                             u.clear_screen()
                         else:
                             print("opcion invalida")
@@ -176,16 +193,19 @@ def menu():
                             rep.campers_inscritos_aprobados()
                             u.clear_screen()
                             u.clear_screen()
+                            opcion4=m.menu_repot()
                         elif opcion4==2:
                             rep.trainers_activos()
                             u.clear_screen()
                             u.clear_screen()
+                            opcion4=m.menu_repot()
                         elif opcion4==3:
                             rep.campers_bajo_rendimiento()
                             u.clear_screen()
                             u.clear_screen()
+                            opcion4=m.menu_repot()
                         elif opcion4==0:
-                            m.menu_admit()
+                            opcion3=m.menu_admit()
                             u.clear_screen()
                             u.clear_screen()
                         else:
@@ -194,7 +214,7 @@ def menu():
 
                             
                     case 0:
-                        m.logi()
+                        opcion=m.logi()
                         u.clear_screen()
 
                     case _:
@@ -209,6 +229,7 @@ def menu():
             else:
                 print ("opcion invalida")
         
+
         except ValueError: 
             print("erro")
         

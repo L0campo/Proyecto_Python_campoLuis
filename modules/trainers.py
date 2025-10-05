@@ -2,6 +2,7 @@ import modules.rutes as r
 import utils.io_jon as j   
 
 ARCHIVO_TRAINERS = "data/trainers.json"
+ARCHIVO_RUTAS = "data/rutas.json"
 
 
 j.initialize_json(ARCHIVO_TRAINERS, {"trainers": []})
@@ -60,28 +61,38 @@ def registrar_trainer():
         print ("el trainer fue registrado con exito")
 
 def listar_trainers():
+
     data = j.read_json(ARCHIVO_TRAINERS)
     trainers = data.get("trainers", [])
+
     if trainers:
         for trainer in trainers:
+            rutas = trainer["datos"].get("ruta", [])
+            rutas_asignadas = ", ".join([ruta["ID"] for ruta in rutas]) if rutas else "Ninguna"
+
             print(f"""
-ID: {trainer["ID"]}\n
-Nombre: {trainer["datos"]["nombre"]} apellido: {trainer["datos"]["apellidos"]}\n
-Idioma que domina: {trainer["datos"]["idioma"] }\n Ruta asignada: {trainer["datos"]["ruta"]}
+ID: {trainer['ID']}
+Nombre: {trainer['datos']['nombre']} {trainer['datos']['apellidos']}
+Idioma que domina: {trainer['datos']['idioma']}
+Ruta asignada: {rutas_asignadas}
 """)
-            
-            print("-"*60)
+            print("-" * 60)
+    else:
+        print("❌ No hay trainers registrados")
+        
 
 def asignar_ruta_trainer():
     data = j.read_json(ARCHIVO_TRAINERS)
     trainers = data.get("trainers", [])
+    data = j.read_json(ARCHIVO_RUTAS)
+    rutas = data.get("rutas", [])
     if trainers:
         ID_trainer=input("ingrese el ID del trainer que deses asignarle una ruta: ")
         ID_ruta= input("ingresar el ID de la ruta: ")
 
         trainer_encontrado= None
         ruta_encotrada= None
-        for ruta in r.rutas: 
+        for ruta in rutas: 
             if ruta["ID"]==  ID_ruta:
                 ruta_encotrada= ruta
                 break

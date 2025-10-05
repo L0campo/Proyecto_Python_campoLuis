@@ -16,9 +16,13 @@ def mostrar_camper():
         ID=input ("ingrese el ID de la ruta asignada: ")
         for ruta in rutas:
             if ruta["ID"]== ID :
-                print(f"camper:{ruta["data"]["campers"]["ID"]}\n:{ruta["data"]["campers"]["nombre"]}{ruta["data"]["campers"]["apellidos"]}")
-                print("-"*60)
+                for camper in ruta["data"]["campers"]:
+                    print(f"Camper: {camper['ID']} - {camper['datos']['nombre']} {camper['datos']['apellidos']}")
+                print("-" * 60)
+                    
+                    
     else :
+
         print("no hay rutas registrados")            
     
 
@@ -37,7 +41,7 @@ def listar_campers_mo_estado():
 Nombre: {camper["datos"]["nombre"]}\n {camper["datos"]["apellidos"]}\n
 Estado: {camper["datos"]["estado"]}""")
 
-                
+        
     else :
         print("no hay campers registrados")  
 
@@ -50,14 +54,25 @@ def listar_campers_mo_ru():
     if rutas:
         ID=input ("ingrese su ID: ")
         for ruta in rutas:
-            if ruta["data"]["campers"]["ID"]== ID :
-                print(f"camper:{ruta["data"]["campers"]["ID"]}\n:{ruta["data"]["campers"]["nombre"]}{ruta["data"]["campers"]["apellidos"]}\n{ruta["data"]["modulos"]}")
-                
+            for camper in ruta["data"]["campers"]:
+                if camper["ID"] == ID:
+            
+                    print(f"""
+ID: {camper['ID']}
+Nombre: {camper['datos']['nombre']} {camper['datos']['apellidos']}
+Módulos: {ruta['data']['modulos']}
+Ruta: {ruta['ID']} (Salón: {ruta['data']['area']['salon']}, Horario: {ruta['data']['area']['hora']})
+""")
+                    encontrado = True
+        if not encontrado:
+            print("❌ Ese camper no está asignado a ninguna ruta.")        
     else :
         print("no hay rutas registrados")       
 
 def listar_campers_no():
     
+    data = j.read_json(FILE)                
+    campers = data.get("campers", [])  
     if campers:
         id=input ("ingrese su ID: ")
         
@@ -66,3 +81,7 @@ def listar_campers_no():
                 print(f"""ID: {camper["ID"]}\n
 Nombre: {camper["datos"]["nombre"]}\n {camper["datos"]["apellidos"]}\n
 {camper["datos"]["notas"]}""")
+                
+        
+    else :
+        print("no hay campers registrados")

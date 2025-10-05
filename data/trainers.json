@@ -1,7 +1,83 @@
 {
+    "rutas": [
+        {
+            "ID": "123",
+            "data": {
+                "modulos": [
+                    [
+                        "Introduccio\u0301n a la algoritmia",
+                        "PSeInt",
+                        "Python"
+                    ],
+                    [
+                        "HTML",
+                        "CSS",
+                        "Bootstrap"
+                    ],
+                    "java",
+                    "Mysql",
+                    "MongoDb",
+                    "Express"
+                ],
+                "capacidad": 33,
+                "area": {
+                    "salon": "Apolo",
+                    "hora": "7-11"
+                },
+                "campers": [
+                    {
+                        "ID": "999",
+                        "datos": {
+                            "nombre": "maria",
+                            "apellidos": "d.perez",
+                            "direcion": "18-#12",
+                            "acudiente": "luis",
+                            "telefono": {
+                                "celular": "3112158147",
+                                "fijo": "000"
+                            },
+                            "estado": "aprobado",
+                            "riesgo": "bajo",
+                            "notas": {
+                                "nota 0": null,
+                                "modulo.1": null,
+                                "modulo.2": null,
+                                "modulo.3": null,
+                                "modulo.4": null,
+                                "modulo.5": null
+                            }
+                        }
+                    },
+                    {
+                        "ID": "999",
+                        "datos": {
+                            "nombre": "maria",
+                            "apellidos": "d.perez",
+                            "direcion": "18-#12",
+                            "acudiente": "luis",
+                            "telefono": {
+                                "celular": "3112158147",
+                                "fijo": "000"
+                            },
+                            "estado": "aprobado",
+                            "riesgo": "bajo",
+                            "notas": {
+                                "nota 0": null,
+                                "modulo.1": null,
+                                "modulo.2": null,
+                                "modulo.3": null,
+                                "modulo.4": null,
+                                "modulo.5": null
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    ],
     "trainers": [
         {
-            "ID": "321",
+            "ID": "555",
             "datos": {
                 "nombre": "carlos",
                 "apellidos": "perez",

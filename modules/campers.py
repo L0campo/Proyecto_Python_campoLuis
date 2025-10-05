@@ -258,21 +258,28 @@ def actualizar_notas_camper():
 
                 
 
-            else:
-                print("no exixten camper con ese ID")   
+        if not campers:
+            print("no hay campers registrados")
+
+                
 
 def calcular_promedio_notas():
+
     data = u.read_json(FILE)
     campers = data.get("campers", [])
 
     for camper in campers:
         notas = camper["datos"].get("notas", [])
+
+        
+        notas = [float(n) for n in notas if n != ""]
+
         if notas:
             promedio = sum(notas) / len(notas)
             camper["datos"]["promedio"] = round(promedio, 2)
         else:
             camper["datos"]["promedio"] = None
 
-    
-    u.write_json(FILE, {"campers": campers})
+    data["campers"] = campers
+    u.write_json(FILE, data)
     print("✅ Promedios calculados y guardados en campers.json")

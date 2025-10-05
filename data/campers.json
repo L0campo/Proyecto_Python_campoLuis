@@ -14,7 +14,7 @@
                 "estado": "aprobado",
                 "riesgo": "bajo",
                 "notas": {
-                    "nota 0": null,
+                    "nota 0": 50.0,
                     "modulo.1": null,
                     "modulo.2": null,
                     "modulo.3": null,
