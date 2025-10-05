@@ -1,0 +1,13 @@
+{
+    "trainers": [
+        {
+            "ID": "321",
+            "datos": {
+                "nombre": "carlos",
+                "apellidos": "perez",
+                "idioma": "java",
+                "ruta": []
+            }
+        }
+    ]
+}

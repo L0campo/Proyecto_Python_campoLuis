@@ -57,24 +57,29 @@ def registrar_camper():
     campers.append(camper)
     u.rewrite_json(FILE, campers, path=["campers"])
     print("✅ El camper fue registrado con éxito")
+    
 
 
 
 
 def listar_campers_por_estado():
 
-    
+    data = u.read_json(FILE)                
+    campers = data.get("campers", [])  
     if campers:
         estado=input ("ingrese el estado de buqueda: ")
         for camper in campers:
             if camper["datos"]["estado"]== estado :
                 print(f"""ID: {camper["ID"]}\n
 Nombre: {camper["datos"]["nombre"]}\n {camper["datos"]["apellidos"]}\n
-Estado: {camper["datos"]["estado"]}\n notas: {camper["datos"]["notas"]}""")
+Estado: {camper["datos"]["estado"]}""")
 
                 print("-"*60)
-            else:
-                print("estado inexistente")
+        
+    if not campers:
+        print("no hay campers registrados")
+
+                
     else :
         print("no hay campers registrados")            
     
@@ -144,6 +149,8 @@ def actualizar_estado_camper():
         print("no hay campers registrados")
 
 def listar_campers_en_riesgo():
+    data = u.read_json(FILE)                
+    campers = data.get("campers", [])  
     
     if campers:
         riesgo=input ("ingrese el riesgo de buqueda: ")
@@ -250,16 +257,22 @@ def actualizar_notas_camper():
                     print("opcion no valida")
 
                 
-                    
-                    
-                
-
-                    
-
-
-
-
-                
 
             else:
                 print("no exixten camper con ese ID")   
+
+def calcular_promedio_notas():
+    data = u.read_json(FILE)
+    campers = data.get("campers", [])
+
+    for camper in campers:
+        notas = camper["datos"].get("notas", [])
+        if notas:
+            promedio = sum(notas) / len(notas)
+            camper["datos"]["promedio"] = round(promedio, 2)
+        else:
+            camper["datos"]["promedio"] = None
+
+    
+    u.write_json(FILE, {"campers": campers})
+    print("✅ Promedios calculados y guardados en campers.json")

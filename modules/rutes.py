@@ -1,18 +1,11 @@
 import modules.campers as c
 import utils.io_jon as j
-ARCHIVO_RUTAS = "rutas.json"
+ARCHIVO_RUTAS = "data/rutas.json"
+
+
 
 
 j.initialize_json(ARCHIVO_RUTAS, {"rutas": []})
-data = j.read_json(ARCHIVO_RUTAS)
-rutas = data.get("rutas", [])
-
-
-
-
-
-
-rutas=[]
 
 def crear_ruta():
     
@@ -136,15 +129,19 @@ def crear_ruta():
         "area": area,
         "campers": []
     }  }
-    rutas.append(ruta)
+    data["rutas"].append(ruta)
+    j.write_json(ARCHIVO_RUTAS, data)
+    print("Ruta creada y guardada en JSON ✅")
+    
 
 
 
 def listar_rutas():
+    data = j.read_json(ARCHIVO_RUTAS)
+    rutas = data.get("rutas", [])
     if rutas:
-        ID=input ("ingrese el ID de la ruta: ")
-        for ruta in rutas:
-            if ruta["ID"]== ID :
+        
+        for ruta in rutas:           
                 print(f"""ID:{ruta["ID"]}\nmodulos:{ruta["data"]["modulos"]}""")
                 print("-"*60)
     else :
@@ -163,7 +160,7 @@ def asignar_camper_a_ruta():
         
         for camper in c.campers :
             if camper["ID"]==  ID_camper:
-                if camper["datos"]["estado"] == "aprodado":
+                if camper["datos"]["estado"] == "aprobado":
 
                     camper_encontrado= camper
                     break
@@ -185,6 +182,7 @@ def asignar_camper_a_ruta():
                         
         if len(ruta_encotrada["data"]["campers"]) < ruta_encotrada["data"]["capacidad"]:
                 ruta_encotrada["data"]["campers"].append(camper_encontrado)
+                j.write_json(ARCHIVO_RUTAS, data) 
                 
 
                 
