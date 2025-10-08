@@ -1,0 +1,41 @@
+{
+    "trainers": [
+        {
+            "ID": "123",
+            "datos": {
+                "nombre": "carlos",
+                "apellidos": "perez",
+                "idioma": "c#",
+                "ruta": [
+                    {
+                        "ID": "123",
+                        "data": {
+                            "modulos": [
+                                [
+                                    "Introduccio\u0301n a la algoritmia",
+                                    "PSeInt",
+                                    "Python"
+                                ],
+                                [
+                                    "HTML",
+                                    "CSS",
+                                    "Bootstrap"
+                                ],
+                                "java",
+                                "MongoDb",
+                                "Mysql",
+                                "Express"
+                            ],
+                            "capacidad": 33,
+                            "area": {
+                                "salon": "Apolo",
+                                "hora": "11-15"
+                            },
+                            "campers": []
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

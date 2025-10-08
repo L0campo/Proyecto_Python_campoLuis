@@ -120,7 +120,7 @@ def asignar_ruta_trainer():
                         
         
         trainer_encontrado["datos"]["ruta"].append(ruta_encotrada)
-        j.write_json(ARCHIVO_TRAINERS, data)
+        j.write_json(ARCHIVO_TRAINERS, {"trainers": trainers})
 
     else:
         print("no hay trainers registrados")            
