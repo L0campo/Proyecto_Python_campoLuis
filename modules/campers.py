@@ -67,21 +67,56 @@ def listar_campers_por_estado():
     data = u.read_json(FILE)                
     campers = data.get("campers", [])  
     if campers:
-        estado=input ("ingrese el estado de buqueda: ")
         for camper in campers:
+            
+            print("estados")
+            print("1.En proceso de ingreso") 
+            print("2.inscrito")           
+            print("3.aprobado")
+            print("4.cursando")
+            print("5.graduado")
+            print("6.expulsado")
+            print("7.retirado")
+            estado=input ("ingrese el estado de buqueda: ")
+            if estado == "1":
+                    estado="proceso"
+
+            elif estado == "2":
+                    estado="inscrito"
+                    
+            elif estado == "3":
+                    estado="aprobado"
+                    
+            elif estado == "4":
+                    estado="cursando"
+                    
+            elif estado == "5":
+                    estado="graduado"
+                    
+            elif estado == "6":
+                    estado="expulsado"
+                    
+            elif estado == "7":
+                    estado="retirado"
+
+            else:
+                    print("opcion no valido")
+                    return
+
+
             if camper["datos"]["estado"]== estado :
+                u.clear_screen()
                 print(f"""ID: {camper["ID"]}\n
 Nombre: {camper["datos"]["nombre"]}\n {camper["datos"]["apellidos"]}\n
 Estado: {camper["datos"]["estado"]}""")
 
-                print("-"*60)
+                print("---"*60)
         
     if not campers:
         print("no hay campers registrados")
 
                 
-    else :
-        print("no hay campers registrados")            
+         
     
     
         
@@ -132,6 +167,7 @@ def actualizar_estado_camper():
 
                 else:
                     print("opcion no valido")
+                    return
                 
 
                 
@@ -150,17 +186,29 @@ def actualizar_estado_camper():
 
 def listar_campers_en_riesgo():
     data = u.read_json(FILE)                
-    campers = data.get("campers", [])  
-    
+    campers = data.get("campers", [])      
     if campers:
-        riesgo=input ("ingrese el riesgo de buqueda: ")
         for camper in campers:
+            print("niveles de riesgo")
+            print("1.bajo")
+            print("2.medio")
+            print("3.alto")
+            opcion=input("seleccione una opcion: ")
+            if opcion == "1":
+                riesgo="bajo"
+            elif opcion == "2":
+                riesgo="medio"
+            elif opcion == "3":
+                riesgo="alto"
+            else:
+                print("opcion no valida")
+
             if camper["datos"]["riesgo"]== riesgo :
-                print(f"""ID: {camper["ID"]}\n
+                print(f"""\nID: {camper["ID"]}\n
 Nombre: {camper["datos"]["nombre"]}\n {camper["datos"]["apellidos"]}\n
 riesgo: {camper["datos"]["riesgo"]}""")
 
-                print("-"*60)
+                print("---"*60)
     else :
         print("no hay campers registrados")            
 
@@ -187,6 +235,7 @@ def actualizar_riesgo_camper():
                     new_riesgo="alto"
                 else:
                     print("opcion no valida")
+                    return
 
 
                 
@@ -255,6 +304,7 @@ def actualizar_notas_camper():
                     
                 else:
                     print("opcion no valida")
+                    return
 
                 
 

@@ -15,14 +15,19 @@ def registrar_trainer():
         ID = input ("ingrese el ID del trainer: ")
     
         for trainer in trainers:
-            if trainer["ID"]== ID:
-                print("ID ya existente")
+            if trainer["ID"]== ID:             
                 return
+            else :
+                print("ID ocupado por otro trainer, intente con otro")
+                
+            
+            
+        
     
         trainer1 = input ("ingrese el nombre del trainer que desea ingresar: ")
-        apellidos = input ("ingrese los apellidos del camper: ")
+        apellidos = input ("ingrese los apellidos del trainer: ")
         
-        print("ingrese un idioma de programacion")
+        print("ingrese un idioma de programacion en el cual se especializa")
         print("1.Java")
         print("2.JavaScript")
         print("3.C#")  
@@ -35,6 +40,7 @@ def registrar_trainer():
             idioma = "c#"
         else:
             print("opcion invalida")
+            return
             
         print("="*30)
         
@@ -99,6 +105,7 @@ def asignar_ruta_trainer():
                 
         if not ruta_encotrada:
             print("error, ID inexistente") 
+            j.pasuar()
             return  
 
         for trainer in trainers:
@@ -107,8 +114,9 @@ def asignar_ruta_trainer():
                 break
                 
 
-            else:
-                print("error, ID de ruta inexistente")
+        if not trainer_encontrado:
+            print ("error, ID inexistente")
+                
                         
         
         trainer_encontrado["datos"]["ruta"].append(ruta_encotrada)

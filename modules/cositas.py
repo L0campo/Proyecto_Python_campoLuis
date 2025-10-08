@@ -17,8 +17,8 @@ def mostrar_camper():
         for ruta in rutas:
             if ruta["ID"]== ID :
                 for camper in ruta["data"]["campers"]:
-                    print(f"Camper: {camper['ID']} - {camper['datos']['nombre']} {camper['datos']['apellidos']}")
-                print("-" * 60)
+                    print(f"Camper: {camper['ID']}\n {camper['datos']['nombre']} {camper['datos']['apellidos']}")
+                print("---" * 60)
                     
                     
     else :
