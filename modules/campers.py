@@ -77,26 +77,26 @@ def listar_campers_por_estado():
             print("5.graduado")
             print("6.expulsado")
             print("7.retirado")
-            estado=input ("ingrese el estado de buqueda: ")
-            if estado == "1":
+            estado1=input ("ingrese el estado de buqueda: ")
+            if estado1 == "1":
                     estado="proceso"
 
-            elif estado == "2":
+            elif estado1 == "2":
                     estado="inscrito"
                     
-            elif estado == "3":
+            elif estado1 == "3":
                     estado="aprobado"
                     
-            elif estado == "4":
+            elif estado1 == "4":
                     estado="cursando"
                     
-            elif estado == "5":
+            elif estado1 == "5":
                     estado="graduado"
                     
-            elif estado == "6":
+            elif estado1 == "6":
                     estado="expulsado"
                     
-            elif estado == "7":
+            elif estado1 == "7":
                     estado="retirado"
 
             else:
