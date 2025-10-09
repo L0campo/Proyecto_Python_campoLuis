@@ -4,12 +4,13 @@
             "ID": "123",
             "datos": {
                 "nombre": "carlos",
-                "apellidos": "perez",
-                "idioma": "c#",
+                "apellidos": "Perez",
+                "idioma": "java",
                 "ruta": [
                     {
                         "ID": "123",
                         "data": {
+                            "nombre": "java",
                             "modulos": [
                                 [
                                     "Introduccio\u0301n a la algoritmia",
@@ -22,19 +23,28 @@
                                     "Bootstrap"
                                 ],
                                 "java",
-                                "MongoDb",
                                 "Mysql",
+                                "MongoDb",
                                 "Express"
                             ],
                             "capacidad": 33,
                             "area": {
-                                "salon": "Apolo",
+                                "salon": "Artemis",
                                 "hora": "11-15"
                             },
                             "campers": []
                         }
                     }
                 ]
+            }
+        },
+        {
+            "ID": "111",
+            "datos": {
+                "nombre": "luis",
+                "apellidos": "campo",
+                "idioma": "c#",
+                "ruta": []
             }
         }
     ]

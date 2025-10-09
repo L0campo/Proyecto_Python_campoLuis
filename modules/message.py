@@ -3,6 +3,7 @@ def logi ():
         print("1.camper")
         print("2.trainer")
         print("3.cordinacion")
+        print("4.TES")
         print("0.salir")
         opcion=int(input("ingrese una opcion correspondiente del 0-3: "))
         return opcion

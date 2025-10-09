@@ -3,6 +3,7 @@
         {
             "ID": "123",
             "data": {
+                "nombre": "java",
                 "modulos": [
                     [
                         "Introduccio\u0301n a la algoritmia",
@@ -15,13 +16,13 @@
                         "Bootstrap"
                     ],
                     "java",
-                    "MongoDb",
                     "Mysql",
+                    "MongoDb",
                     "Express"
                 ],
                 "capacidad": 33,
                 "area": {
-                    "salon": "Apolo",
+                    "salon": "Artemis",
                     "hora": "11-15"
                 },
                 "campers": []

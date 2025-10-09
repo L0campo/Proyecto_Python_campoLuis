@@ -15,10 +15,10 @@ def registrar_trainer():
         ID = input ("ingrese el ID del trainer: ")
     
         for trainer in trainers:
-            if trainer["ID"]== ID:             
+            if trainer["ID"]== ID:      
+                print("ya existe ese ID")       
                 return
-            else :
-                print("ID ocupado por otro trainer, intente con otro")
+       
                 
             
             

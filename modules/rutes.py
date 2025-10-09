@@ -22,6 +22,9 @@ def crear_ruta():
         if ruta["ID"]== ID_ruta:
             print("ID ya existente")
             return
+
+    nombre=input("ingrese un nombre para la ruta: ")    
+    
     print("ingrese un idioma de programacion")
     print("1.Java")
     print("2.JavaScript")
@@ -137,7 +140,8 @@ def crear_ruta():
 
     ruta = {
         "ID": ID_ruta,
-        "data":{        
+        "data":{   
+        "nombre": nombre,   
         "modulos" :modulos,
         "capacidad": 33,
         "area": area,

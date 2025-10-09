@@ -1,3 +1,27 @@
 {
-    "campers": []
+    "campers": [
+        {
+            "ID": "999",
+            "datos": {
+                "nombre": "Maria",
+                "apellidos": "paula",
+                "direcion": "32-#32",
+                "acudiente": "Luis",
+                "telefono": {
+                    "celular": "3112158147",
+                    "fijo": "000"
+                },
+                "estado": "proceso",
+                "riesgo": "bajo",
+                "notas": {
+                    "nota 0": null,
+                    "modulo.1": null,
+                    "modulo.2": null,
+                    "modulo.3": null,
+                    "modulo.4": null,
+                    "modulo.5": null
+                }
+            }
+        }
+    ]
 }

@@ -2,6 +2,7 @@ import modules.campers as c
 import utils.io_jon as j
 ARCHIVO_RUTAS = "data/rutas.json"
 FILE = "data/campers.json"
+ARCHIVO_TRAINERS = "data/trainers.json"
 
 j.initialize_json(FILE, {"campers": []})
 data = j.read_json(FILE)
@@ -85,3 +86,49 @@ Nombre: {camper["datos"]["nombre"]}\n {camper["datos"]["apellidos"]}\n
         
     else :
         print("no hay campers registrados")
+
+
+
+
+def tes():
+    data_trainers = j.read_json(ARCHIVO_TRAINERS).get("trainers", [])
+    data_rutas = j.read_json(ARCHIVO_RUTAS).get("rutas", [])
+    for trainer in data_trainers:
+        for ruta in data_rutas:
+            
+                print(f"ID Trainer: {trainer['ID']}\nNombre: {trainer['datos']['nombre']} {trainer['datos']['apellidos']}")
+                print("--"*60)
+                print(f"Nombre de Ruta: {ruta['data']['nombre']}\nSalon: {ruta['data']['area']['salon']}")
+                print("--"*60)
+
+                con_ruta = sum(1 for t in data_trainers if t["datos"]["ruta"] )
+                sin_ruta = sum(1 for t in data_trainers if not t["datos"]["ruta"])
+                can_trainer=sum(1 for t in data_trainers if t)
+        
+
+    if not ruta:
+
+        print("Ruta no registradas")
+    
+
+    if not trainer:  
+        print("Trainer no registrado")
+                
+   
+    
+    print(f"trainer actuales: {can_trainer}")
+    print(f"Trainers con ruta asignada: {con_ruta}")
+    print(f"Trainers sin ruta: {sin_ruta}")
+
+    
+
+  
+   
+            
+    
+                
+    
+
+                
+
+

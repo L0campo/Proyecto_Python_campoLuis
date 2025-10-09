@@ -217,7 +217,8 @@ def menu():
                                     print("opcion invalida")
 
 
-                                
+                        
+
                         case 0:
                             u.clear_screen()
                             break
@@ -227,6 +228,10 @@ def menu():
 
 
 
+            elif opcion== 4:
+                co.tes()
+                u.pasuar()
+                u.clear_screen()
 
             elif opcion == 0:
                 break

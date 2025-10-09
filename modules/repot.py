@@ -15,8 +15,9 @@ def campers_inscritos_aprobados():
 
 
 def trainers_activos():
-    data = j.read_json(ARCHIVO_TRAINERS)
-    trainers = data.get("trainers", [])
+    trainers = j.read_json(ARCHIVO_TRAINERS).get("trainers", [])
+    
+    
 
     con_ruta = sum(1 for t in trainers if t["datos"]["ruta"])
     sin_ruta = sum(1 for t in trainers if not t["datos"]["ruta"])
